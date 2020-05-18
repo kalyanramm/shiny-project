@@ -26,7 +26,7 @@ shinyServer(function(input, output){
     df = 
       whr_df %>% 
       filter(Country == input$country) %>% 
-      gather(key='factor', value='value', `Happiness Score`, `GDP Per Capita`, `Family`, `Health Life Expectancy`, `Freedom`,  `Perceptions Of Corruption`, `Generosity`)
+      tidyr::gather(key='factor', value='value', `Happiness Score`, `GDP Per Capita`, `Family`, `Health Life Expectancy`, `Freedom`,  `Perceptions Of Corruption`, `Generosity`)
     
     df %>% 
       ggplot(aes(x=Year, y =value, group=factor)) + 
